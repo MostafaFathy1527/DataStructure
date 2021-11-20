@@ -175,7 +175,7 @@ public class LinkedList {
         return 0;
     }
 
-    void printNthFromLast(int n) {
+    public void printNthFromLast(int n) {
         int len = 0;
         Node temp = Head;
 
@@ -195,7 +195,7 @@ public class LinkedList {
         System.out.println(temp.Data);
     }
 
-    int count(int search_for) {
+    public int count(int search_for) {
         Node current = Head;
         int count = 0;
         while (current != null) {
@@ -206,19 +206,6 @@ public class LinkedList {
         return count;
     }
 
-    Node reverse(Node node) {
-        Node prev = null;
-        Node current = node;
-        Node next = null;
-        while (current != null) {
-            next = current.Next;
-            current.Next = prev;
-            prev = current;
-            current = next;
-        }
-        node = prev;
-        return node;
-    }
 
 
 }
