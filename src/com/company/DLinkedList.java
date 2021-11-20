@@ -14,14 +14,6 @@ public class DLinkedList {
         size++;
         return NewNode;
     }
-    public static DNode SearchNode(Integer Data){
-        DNode NewNode;
-        NewNode=Head;
-        while(NewNode!=null&&NewNode.Data!=Data){
-            NewNode=NewNode.Next;
-        }
-        return NewNode;
-    }
     public static void PrintList () {
         DNode current = Head;
         if(Head == null) {
