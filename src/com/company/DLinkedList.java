@@ -4,6 +4,8 @@ public class DLinkedList {
     static DNode Head=null;
     static DNode Tail=null;
     public static  int   size=0;
+
+
     static DNode CreateNode(Integer Data){
         DNode NewNode= new DNode();
         if(NewNode!=null){
@@ -14,6 +16,7 @@ public class DLinkedList {
         size++;
         return NewNode;
     }
+
     public static DNode SearchNode(Integer Data){
         DNode NewNode;
         NewNode=Head;
@@ -22,6 +25,7 @@ public class DLinkedList {
         }
         return NewNode;
     }
+
     public static void PrintList () {
         DNode current = Head;
         if(Head == null) {
@@ -36,6 +40,7 @@ public class DLinkedList {
             current = current.Next;
         }
     }
+
     public static void AddNode(int Data) {
         DNode newNode = CreateNode ( Data );
 
@@ -52,6 +57,7 @@ public class DLinkedList {
         }
 
     }
+
     public static void Push(int data) {
         DNode newNode = CreateNode ( data );
         newNode.Data = data;
@@ -64,6 +70,7 @@ public class DLinkedList {
             Tail=newNode;
         size++;
     }
+
     public static void DeleteFirst() {
 
         if (size == 0)
@@ -74,6 +81,7 @@ public class DLinkedList {
         size--;
 
     }
+
     public static void DeleteLast() {
 
         DNode temp = Tail;
@@ -81,4 +89,5 @@ public class DLinkedList {
         Tail.Next=null;
         size--;
     }
+
 }
