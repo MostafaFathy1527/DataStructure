@@ -2,11 +2,12 @@ package com.company;
 
 public class LinkedList {
     public Node Head = null;
-
+    int size=0;
     public Node CreatDummyNode ( Integer Data ) {
         Node NewNode = new Node ( );
         NewNode.Data = Data;
         NewNode.Next = null;
+        size++;
         return NewNode;
     }
 
@@ -56,18 +57,15 @@ public class LinkedList {
     }
 
     void PushAt(int Data, int position) {
-        Node newNode = new Node();
-        newNode.Data = Data;
-        newNode.Next = null;
-
+        Node newNode = CreatDummyNode(Data);
         if(position < 0) {
-            System.out.print("\nposition should be >= 1.");
+            System.out.print("\nposition should be >= 0.");
         } else if (position == 0) {
             newNode.Next = Head;
             Head = newNode;
         } else {
 
-            Node temp = new Node();
+            Node temp ;
             temp = Head;
             for(int i = 0; i < position-1; i++) {
                 if(temp != null) {
@@ -112,6 +110,7 @@ public class LinkedList {
             return;
 
         prev.Next = temp.Next;
+        size--;
     }
 
     void DeleteAtIndex ( int Index ) {
@@ -134,6 +133,7 @@ public class LinkedList {
 
 
         temp.Next = temp.Next.Next;
+        size--;
     }
 
     public void PrintList () {
@@ -146,6 +146,7 @@ public class LinkedList {
 
     public void DeleteList() {
         Head = null;
+        size=0;
     }
 
     public int GetCount() {
