@@ -3,7 +3,7 @@ package com.company;
 public class LinkedList {
     public Node Head = null;
     int size=0;
-    public Node CreatDummyNode ( Integer Data ) {
+    public Node CreateDummyNode ( Integer Data ) {
         Node NewNode = new Node ( );
         NewNode.Data = Data;
         NewNode.Next = null;
@@ -13,18 +13,18 @@ public class LinkedList {
 
     public void Push ( Integer Data ) {
         Node NewNode;
-        NewNode      = CreatDummyNode ( Data );
+        NewNode      = CreateDummyNode ( Data );
         NewNode.Next = Head;
         Head         = NewNode;
     }
 
     public void Append ( Integer Data ) {
 
-        Node new_node = CreatDummyNode ( Data );
+        Node new_node = CreateDummyNode ( Data );
 
 
         if ( Head == null ) {
-            Head = CreatDummyNode ( Data );
+            Head = CreateDummyNode ( Data );
             return;
         }
 
@@ -49,7 +49,7 @@ public class LinkedList {
 
         Node NewNode;
 
-        NewNode = CreatDummyNode ( Data );
+        NewNode = CreateDummyNode ( Data );
 
         NewNode.Next = prev_node.Next;
 
@@ -57,7 +57,7 @@ public class LinkedList {
     }
 
     void PushAt(int Data, int position) {
-        Node newNode = CreatDummyNode(Data);
+        Node newNode = CreateDummyNode (Data );
         if(position < 0) {
             System.out.print("\nposition should be >= 0.");
         } else if (position == 0) {
