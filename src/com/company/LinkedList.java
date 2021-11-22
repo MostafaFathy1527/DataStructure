@@ -2,7 +2,8 @@ package com.company;
 
 public class LinkedList {
     public Node Head = null;
-    int size=0;
+    int size = 0;
+
     public Node CreateDummyNode ( Integer Data ) {
         Node NewNode = new Node ( );
         NewNode.Data = Data;
@@ -56,28 +57,31 @@ public class LinkedList {
         prev_node.Next = NewNode;
     }
 
-    public void PushAt(int Data, int position) {
-        Node newNode = CreateDummyNode (Data );
-        if(position < 0) {
-            System.out.print("\nposition should be >= 0.");
-        } else if (position == 0) {
+    public void PushAt ( int Data , int position ) {
+        Node newNode = CreateDummyNode ( Data );
+        if ( position < 0 ) {
+            System.out.print ( "\nposition should be >= 0." );
+        }
+        else if ( position == 0 ) {
             newNode.Next = Head;
-            Head = newNode;
-        } else {
+            Head         = newNode;
+        }
+        else {
 
-            Node temp ;
+            Node temp;
             temp = Head;
-            for(int i = 0; i < position-1; i++) {
-                if(temp != null) {
+            for ( int i = 0 ; i < position - 1 ; i++ ) {
+                if ( temp != null ) {
                     temp = temp.Next;
                 }
             }
 
-            if(temp != null) {
+            if ( temp != null ) {
                 newNode.Next = temp.Next;
-                temp.Next = newNode;
-            } else {
-                System.out.print("\nThe previous node is null.");
+                temp.Next    = newNode;
+            }
+            else {
+                System.out.print ( "\nThe previous node is null." );
             }
         }
     }
@@ -136,12 +140,12 @@ public class LinkedList {
         size--;
     }
 
-    public void DeleteList() {
+    public void DeleteList ( ) {
         Head = null;
-        size=0;
+        size = 0;
     }
 
-    public void PrintList () {
+    public void PrintList ( ) {
         Node node = Head;
         while ( node != null ) {
             System.out.print ( node.Data + " " );
@@ -150,55 +154,50 @@ public class LinkedList {
         System.out.println ( );
     }
 
-    public void printNthFromLast(int n) {
-        int len = 0;
+    public void printNthFromLast ( int n ) {
+        int  len  = 0;
         Node temp = Head;
 
-        while (temp != null) {
+        while ( temp != null ) {
             temp = temp.Next;
             len++;
         }
 
-        if (len < n)
+        if ( len < n )
             return;
 
         temp = Head;
 
-        for (int i = 0; i < len - n -1; i++)
-             temp = temp.Next;
+        for ( int i = 0 ; i < len - n - 1 ; i++ )
+              temp = temp.Next;
 
-        System.out.println(temp.Data);
+        System.out.println ( temp.Data );
     }
 
 
-    public void printNth(int index) {
+    public void printNth ( int index ) {
         Node current = Head;
-        int count = 0;
-        while (current != null)
-        {
-            if (count == index)
-                System.out.println( current.Data) ;
+        int  count   = 0;
+        while ( current != null ) {
+            if ( count == index )
+                System.out.println ( current.Data );
             count++;
             current = current.Next;
         }
 
 
-
-
     }
 
 
-    public int GetCount() {
-        Node temp = Head;
-        int count = 0;
-        while (temp != null)
-        {
+    public int GetCount ( ) {
+        Node temp  = Head;
+        int  count = 0;
+        while ( temp != null ) {
             count++;
             temp = temp.Next;
         }
         return count;
     }
-
 
 
 }
