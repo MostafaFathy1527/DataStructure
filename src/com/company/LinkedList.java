@@ -18,24 +18,7 @@ public class LinkedList {
         Head         = NewNode;
     }
 
-    public void InsertAfter ( Node prev_node , int Data ) {
-
-        if ( prev_node == null ) {
-            System.out.println ( "The given previous node cannot be null" );
-            return;
-        }
-
-
-        Node NewNode;
-
-        NewNode = CreatDummyNode ( Data );
-
-        NewNode.Next = prev_node.Next;
-
-        prev_node.Next = NewNode;
-    }
-
-    public void append ( Integer Data ) {
+    public void Append ( Integer Data ) {
 
         Node new_node = CreatDummyNode ( Data );
 
@@ -54,6 +37,23 @@ public class LinkedList {
 
         last.Next = new_node;
         return;
+    }
+
+    public void InsertAfter ( Node prev_node , int Data ) {
+
+        if ( prev_node == null ) {
+            System.out.println ( "The given previous node cannot be null" );
+            return;
+        }
+
+
+        Node NewNode;
+
+        NewNode = CreatDummyNode ( Data );
+
+        NewNode.Next = prev_node.Next;
+
+        prev_node.Next = NewNode;
     }
 
     void PushAt(int Data, int position) {
@@ -136,6 +136,11 @@ public class LinkedList {
         size--;
     }
 
+    public void DeleteList() {
+        Head = null;
+        size=0;
+    }
+
     public void PrintList () {
         Node node = Head;
         while ( node != null ) {
@@ -143,38 +148,6 @@ public class LinkedList {
             node = node.Next;
         }
         System.out.println ( );
-    }
-
-    public void DeleteList() {
-        Head = null;
-        size=0;
-    }
-
-    public int GetCount() {
-        Node temp = Head;
-        int count = 0;
-        while (temp != null)
-        {
-            count++;
-            temp = temp.Next;
-        }
-        return count;
-    }
-
-    public int GetNth(int index) {
-        Node current = Head;
-        int count = 0;
-        while (current != null)
-        {
-            if (count == index)
-                return current.Data;
-            count++;
-            current = current.Next;
-        }
-
-
-        assert (false);
-        return 0;
     }
 
     public void printNthFromLast(int n) {
@@ -191,19 +164,37 @@ public class LinkedList {
 
         temp = Head;
 
-        for (int i = 1; i < len - n + 1; i++)
+        for (int i = 0; i < len - n -1; i++)
              temp = temp.Next;
 
         System.out.println(temp.Data);
     }
 
-    public int count(int search_for) {
+
+    public void printNth(int index) {
         Node current = Head;
         int count = 0;
-        while (current != null) {
-            if (current.Data == search_for)
-                count++;
+        while (current != null)
+        {
+            if (count == index)
+                System.out.println( current.Data) ;
+            count++;
             current = current.Next;
+        }
+
+
+
+
+    }
+
+
+    public int GetCount() {
+        Node temp = Head;
+        int count = 0;
+        while (temp != null)
+        {
+            count++;
+            temp = temp.Next;
         }
         return count;
     }
