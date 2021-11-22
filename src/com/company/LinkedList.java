@@ -142,6 +142,7 @@ public class LinkedList {
             System.out.print ( node.Data + " " );
             node = node.Next;
         }
+        System.out.println ( );
     }
 
     public void DeleteList() {
