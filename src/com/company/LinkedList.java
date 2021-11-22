@@ -56,7 +56,7 @@ public class LinkedList {
         prev_node.Next = NewNode;
     }
 
-    void PushAt(int Data, int position) {
+    public void PushAt(int Data, int position) {
         Node newNode = CreateDummyNode (Data );
         if(position < 0) {
             System.out.print("\nposition should be >= 0.");
@@ -93,7 +93,7 @@ public class LinkedList {
             return null;
     }
 
-    void DeleteWithData ( int key ) {
+    public void DeleteWithData ( int key ) {
         Node temp = Head, prev = null;
 
         if ( temp != null && temp.Data == key ) {
@@ -113,7 +113,7 @@ public class LinkedList {
         size--;
     }
 
-    void DeleteAtIndex ( int Index ) {
+    public void DeleteAtIndex ( int Index ) {
         if ( Head == null )
             return;
 
