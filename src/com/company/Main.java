@@ -14,11 +14,15 @@ public class Main {
         list.Append (4);
         list.Append (5);
         list.Append (6);
-        list.Append (7);
-
+        LinkedList list2 = new LinkedList();
+        list2.Append (7);
+        list2.Append (8);
+        list2.Append (9);
+        list2.Append (10);
+        list2.Append (11);
+        list2.Append (12);
+        list.AddAll ( list2 );
         list.PrintList ();
-        list.reverse ( list.Head );
-        list.PrintList();
     }
 
 
