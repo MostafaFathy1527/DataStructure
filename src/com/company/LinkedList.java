@@ -13,8 +13,7 @@ public class LinkedList {
     }
 
     public void Push ( Integer Data ) {
-        Node NewNode;
-        NewNode      = CreateDummyNode ( Data );
+       Node NewNode      = CreateDummyNode ( Data );
         NewNode.Next = Head;
         Head         = NewNode;
     }
@@ -22,40 +21,39 @@ public class LinkedList {
     public void Append ( Integer Data ) {
 
         Node new_node = CreateDummyNode ( Data );
-
-
-        if ( Head == null ) {
-            Head = CreateDummyNode ( Data );
-            return;
+        if(new_node!=null){
+            if ( Head==null){
+                Head = new_node;
+            }
+            else{
+                Node Temp=Head;
+                while ( Temp.Next!=null){
+                    Temp=Temp.Next;
+                }
+                Temp.Next=new_node;
+            }
         }
-
-
-        new_node.Next = null;
-
-        Node last = Head;
-        while ( last.Next != null )
-            last = last.Next;
-
-        last.Next = new_node;
-        return;
     }
 
-    public void InsertAfter ( Node prev_node , int Data ) {
-
-        if ( prev_node == null ) {
-            System.out.println ( "The given previous node cannot be null" );
+    public void InsertAfter ( int prev_data , int Data ) {
+        Node NewNode ;
+        NewNode= CreateDummyNode ( Data );
+        if(Head==null){
             return;
         }
+        else {
+            Node Temp = Head;
+            while ( Temp.Data != prev_data ) {
+                Temp = Temp.Next;
+                if ( Temp==null )
+                    return;
+            }
 
+                NewNode.Next=Temp.Next;
+                Temp.Next = NewNode;
 
-        Node NewNode;
-
-        NewNode = CreateDummyNode ( Data );
-
-        NewNode.Next = prev_node.Next;
-
-        prev_node.Next = NewNode;
-    }
+        }
+        }
 
     public void PushAt ( int Data , int position ) {
         Node newNode = CreateDummyNode ( Data );
@@ -86,13 +84,17 @@ public class LinkedList {
         }
     }
 
-    public Node SearchNode ( Integer Data ) {
-        Node Target = Head;
-        while ( ! Target.Data.equals ( Data ) && Target.Next != null ) {
-            Target = Target.Next;
+    public Node SearchNode ( int Data ) {
+        Node Target = CreateDummyNode(Data);
+        Node Temp=Head;
+        while ( Temp.Next!=null&&Temp.Data!=Data){
+            Temp=Temp.Next;
         }
-        if ( Target.Data.equals ( Data ) )
-            return Target;
+        if ( Temp.Data==Data){
+
+
+            return Temp;
+        }
         else
             return null;
     }
@@ -102,6 +104,7 @@ public class LinkedList {
 
         if ( temp != null && temp.Data == key ) {
             Head = temp.Next;
+            size--;
             return;
         }
 
@@ -112,9 +115,10 @@ public class LinkedList {
 
         if ( temp == null )
             return;
-
+        else {
         prev.Next = temp.Next;
         size--;
+    }
     }
 
     public void DeleteAtIndex ( int Index ) {
@@ -185,7 +189,6 @@ public class LinkedList {
             current = current.Next;
         }
 
-
     }
 
 
@@ -199,6 +202,50 @@ public class LinkedList {
         return count;
     }
 
+    public void AddAll (LinkedList list){
+        Node Temp =Head;
+        while ( Temp.Next!=null){
+            Temp=Temp.Next;
+        }
+        Temp.Next=list.Head;
+    }
 
+    void printReverse(Node head) {
+        if ( head == null ) return;
+        else {
+            printReverse ( head.Next );
+            System.out.print ( head.Data + " " );
+
+        }
+
+    }
+    public Node reverseIterative(Node head){
+        Node prev = null;
+        Node curr = head;
+        Node next = null;
+
+        while(curr!=null){
+            next = curr.Next;
+            curr.Next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+
+    }
+    public Node reverse(Node head){
+        Node prev = null;
+        Node curr = head;
+        Node next = null;
+
+        while(curr!=null){
+            next = curr.Next;
+            curr.Next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+
+    }
 }
 
