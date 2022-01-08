@@ -1,10 +1,12 @@
 package com.company;
 
-public class LinkedList {
+public
+class LinkedList {
     public Node Head = null;
     int size = 0;
 
-    public Node CreateDummyNode ( Integer Data ) {
+    public
+    Node CreateDummyNode ( Integer Data ) {
         Node NewNode = new Node ( );
         NewNode.Data = Data;
         NewNode.Next = null;
@@ -12,50 +14,54 @@ public class LinkedList {
         return NewNode;
     }
 
-    public void Push ( Integer Data ) {
-       Node NewNode      = CreateDummyNode ( Data );
+    public
+    void Push ( Integer Data ) {
+        Node NewNode = CreateDummyNode ( Data );
         NewNode.Next = Head;
         Head         = NewNode;
     }
 
-    public void Append ( Integer Data ) {
+    public
+    void Append ( Integer Data ) {
 
         Node new_node = CreateDummyNode ( Data );
-        if(new_node!=null){
-            if ( Head==null){
+        if ( new_node != null ) {
+            if ( Head == null ) {
                 Head = new_node;
             }
-            else{
-                Node Temp=Head;
-                while ( Temp.Next!=null){
-                    Temp=Temp.Next;
+            else {
+                Node Temp = Head;
+                while ( Temp.Next != null ) {
+                    Temp = Temp.Next;
                 }
-                Temp.Next=new_node;
+                Temp.Next = new_node;
             }
         }
     }
 
-    public void InsertAfter ( int prev_data , int Data ) {
-        Node NewNode ;
-        NewNode= CreateDummyNode ( Data );
-        if(Head==null){
+    public
+    void InsertAfter ( int prev_data , int Data ) {
+        Node NewNode;
+        NewNode = CreateDummyNode ( Data );
+        if ( Head == null ) {
             return;
         }
         else {
             Node Temp = Head;
             while ( Temp.Data != prev_data ) {
                 Temp = Temp.Next;
-                if ( Temp==null )
+                if ( Temp == null )
                     return;
             }
 
-                NewNode.Next=Temp.Next;
-                Temp.Next = NewNode;
+            NewNode.Next = Temp.Next;
+            Temp.Next    = NewNode;
 
         }
-        }
+    }
 
-    public void PushAt ( int Data , int position ) {
+    public
+    void PushAt ( int Data , int position ) {
         Node newNode = CreateDummyNode ( Data );
         if ( position < 0 ) {
             System.out.print ( "\nposition should be >= 0." );
@@ -84,13 +90,14 @@ public class LinkedList {
         }
     }
 
-    public Node SearchNode ( int Data ) {
-        Node Target = CreateDummyNode(Data);
-        Node Temp=Head;
-        while ( Temp.Next!=null&&Temp.Data!=Data){
-            Temp=Temp.Next;
+    public
+    Node SearchNode ( int Data ) {
+        Node Target = CreateDummyNode ( Data );
+        Node Temp   = Head;
+        while ( Temp.Next != null && Temp.Data != Data ) {
+            Temp = Temp.Next;
         }
-        if ( Temp.Data==Data){
+        if ( Temp.Data == Data ) {
 
 
             return Temp;
@@ -99,7 +106,8 @@ public class LinkedList {
             return null;
     }
 
-    public void DeleteWithData ( int key ) {
+    public
+    void DeleteWithData ( int key ) {
         Node temp = Head, prev = null;
 
         if ( temp != null && temp.Data == key ) {
@@ -116,12 +124,13 @@ public class LinkedList {
         if ( temp == null )
             return;
         else {
-        prev.Next = temp.Next;
-        size--;
-    }
+            prev.Next = temp.Next;
+            size--;
+        }
     }
 
-    public void DeleteAtIndex ( int Index ) {
+    public
+    void DeleteAtIndex ( int Index ) {
         if ( Head == null )
             return;
 
@@ -144,12 +153,14 @@ public class LinkedList {
         size--;
     }
 
-    public void DeleteList ( ) {
+    public
+    void DeleteList ( ) {
         Head = null;
         size = 0;
     }
 
-    public void PrintList ( ) {
+    public
+    void PrintList ( ) {
         Node node = Head;
         while ( node != null ) {
             System.out.print ( node.Data + " " );
@@ -158,7 +169,8 @@ public class LinkedList {
         System.out.println ( );
     }
 
-    public void printNthFromLast ( int n ) {
+    public
+    void printNthFromLast ( int n ) {
         int  len  = 0;
         Node temp = Head;
 
@@ -178,8 +190,8 @@ public class LinkedList {
         System.out.println ( temp.Data );
     }
 
-
-    public void printNth ( int index ) {
+    public
+    void printNth ( int index ) {
         Node current = Head;
         int  count   = 0;
         while ( current != null ) {
@@ -191,8 +203,8 @@ public class LinkedList {
 
     }
 
-
-    public int GetCount ( ) {
+    public
+    int GetCount ( ) {
         Node temp  = Head;
         int  count = 0;
         while ( temp != null ) {
@@ -202,15 +214,16 @@ public class LinkedList {
         return count;
     }
 
-    public void AddAll (LinkedList list){
-        Node Temp =Head;
-        while ( Temp.Next!=null){
-            Temp=Temp.Next;
+    public
+    void AddAll ( LinkedList list ) {
+        Node Temp = Head;
+        while ( Temp.Next != null ) {
+            Temp = Temp.Next;
         }
-        Temp.Next=list.Head;
+        Temp.Next = list.Head;
     }
 
-    void printReverse(Node head) {
+    void printReverse ( Node head ) {
         if ( head == null ) return;
         else {
             printReverse ( head.Next );
@@ -219,30 +232,34 @@ public class LinkedList {
         }
 
     }
-    public Node reverseIterative(Node head){
+
+    public
+    Node reverseIterative ( Node head ) {
         Node prev = null;
         Node curr = head;
         Node next = null;
 
-        while(curr!=null){
-            next = curr.Next;
+        while ( curr != null ) {
+            next      = curr.Next;
             curr.Next = prev;
-            prev = curr;
-            curr = next;
+            prev      = curr;
+            curr      = next;
         }
         return prev;
 
     }
-    public Node reverse(Node head){
+
+    public
+    Node reverse ( Node head ) {
         Node prev = null;
         Node curr = head;
         Node next = null;
 
-        while(curr!=null){
-            next = curr.Next;
+        while ( curr != null ) {
+            next      = curr.Next;
             curr.Next = prev;
-            prev = curr;
-            curr = next;
+            prev      = curr;
+            curr      = next;
         }
         return prev;
 
