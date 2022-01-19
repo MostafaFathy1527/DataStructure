@@ -24,68 +24,52 @@ class LinkedList {
     public
     void Append ( Integer Data ) {
 
-        Node new_node = CreateDummyNode ( Data );
-        if ( new_node != null ) {
-            if ( Head == null ) {
-                Head = new_node;
+        Node newNode = CreateDummyNode ( Data );
+        Node temp=Head;
+        if(Head == null){
+            Push(Data);
+        }
+        else{
+            while(temp.Next!=null){
+                temp=temp.Next;
             }
-            else {
-                Node Temp = Head;
-                while ( Temp.Next != null ) {
-                    Temp = Temp.Next;
-                }
-                Temp.Next = new_node;
-            }
+            temp.Next=newNode;
         }
     }
 
     public
     void InsertAfter ( int prev_data , int Data ) {
-        Node NewNode;
-        NewNode = CreateDummyNode ( Data );
-        if ( Head == null ) {
-            return;
-        }
-        else {
-            Node Temp = Head;
-            while ( Temp.Data != prev_data ) {
-                Temp = Temp.Next;
-                if ( Temp == null )
-                    return;
-            }
-
-            NewNode.Next = Temp.Next;
-            Temp.Next    = NewNode;
-
-        }
+         Node newNode= CreateDummyNode(Data);
+         Node temp=Head;
+         if(Head == null){
+         }
+         else{
+             while(temp.Data!=prev_data){
+                 temp=temp.Next;
+             }
+             newNode.Next=temp.Next;
+             temp.Next=newNode;
+         }
     }
 
     public
     void PushAt ( int Data , int position ) {
         Node newNode = CreateDummyNode ( Data );
-        if ( position < 0 ) {
-            System.out.print ( "\nposition should be >= 0." );
-        }
-        else if ( position == 0 ) {
-            newNode.Next = Head;
-            Head         = newNode;
+        if(position==0){
+            newNode.Next=Head.Next;
+            Head=newNode;
         }
         else {
-
-            Node temp;
-            temp = Head;
-            for ( int i = 0 ; i < position - 1 ; i++ ) {
-                if ( temp != null ) {
-                    temp = temp.Next;
+            if (position>size){
+                System.out.println ("position not valid" );
+            }
+            else{
+                Node temp=Head;
+                for(int  i =0;i<position-1;i++){
+                    temp=temp.Next;
                 }
-            }
-
-            if ( temp != null ) {
-                newNode.Next = temp.Next;
+                newNode.Next=temp.Next;
                 temp.Next    = newNode;
-            }
-            else {
-                System.out.print ( "\nThe previous node is null." );
             }
         }
     }

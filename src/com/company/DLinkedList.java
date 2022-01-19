@@ -1,5 +1,8 @@
 package com.company;
 
+
+import java.util.*;
+
 public class DLinkedList {
     static DNode Head=null;
     static DNode Tail=null;
@@ -89,5 +92,6 @@ public class DLinkedList {
         Tail.Next=null;
         size--;
     }
+
 
 }

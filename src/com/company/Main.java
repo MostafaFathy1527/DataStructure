@@ -11,8 +11,8 @@ public class Main {
         list.Append (1);
         list.Append (2);
         list.Append (3);
-        list.Append (4);
-        list.Append (5);
+        list.InsertAfter (3,4);
+        list.PushAt (5,4);
         list.Append (6);
         LinkedList list2 = new LinkedList();
         list2.Append (7);
@@ -24,6 +24,7 @@ public class Main {
         list.AddAll ( list2 );
         list.PrintList ();
     }
+
 
 
 }
