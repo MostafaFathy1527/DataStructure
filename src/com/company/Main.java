@@ -1,28 +1,24 @@
 package com.company;
 
-
-import java.util.*;
-
-
 public class Main {
 
     public static void main(String[] args)   {
-        LinkedList list = new LinkedList();
-        list.Append (1);
-        list.Append (2);
-        list.Append (3);
-        list.InsertAfter (3,4);
-        list.PushAt (5,4);
-        list.Append (6);
-        LinkedList list2 = new LinkedList();
-        list2.Append (7);
-        list2.Append (8);
-        list2.Append (9);
-        list2.Append (10);
-        list2.Append (11);
-        list2.Append (12);
-        list.AddAll ( list2 );
-        list.PrintList ();
+        TreeNode first=new TreeNode(1);
+        TreeNode second=new TreeNode(2);
+        TreeNode third=new TreeNode(3);
+        TreeNode forth=new TreeNode(4);
+        TreeNode fifth=new TreeNode(5);
+        TreeNode th6=new TreeNode(6);
+        TreeNode th7=new TreeNode(7);
+        first.lift=second;
+        first.right=third;
+        second.lift=forth;
+        second.right=fifth;
+        third.lift=th6;
+        third.right=th7;
+        Tree tree = new Tree();
+        tree.preOrder(first);
+
     }
 
 
